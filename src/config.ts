@@ -32,6 +32,10 @@ export const config = [
         url: 'https://github.com/Floki-Inu/',
       },
       {
+        title: 'Board',
+        url: 'https://github.com/orgs/Floki-Inu/projects/3/views/9',
+      },
+      {
         title: 'Inter PJ',
         url: 'https://contadigital.inter.co/'
       }
