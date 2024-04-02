@@ -1,0 +1,36 @@
+---
+import RootLayout from "@/layouts/root-layout.astro";
+import BookmarksDialog from "@/components/bookmarks-dialog";
+import { config } from '@/config';
+---
+
+<RootLayout>
+  <section class="max-w-screen-md container py-20">
+    <div class="flex items-center justify-between">
+      <h1 class="text-3xl font-bold">Bookmarks</h1> 
+      <BookmarksDialog config={config} client:load  />
+    </div>
+
+    <div class="mt-10">
+      <div class="mt-8 space-y-9">
+        {config.map((group) => (
+          <div class="">
+            <h2 class="text-xl font-bold">{group.title}</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4 mt-3">
+              {group.bookmarks.map((bookmark, index) => (
+                <a href={bookmark.url} target="_blank" class="p-4 rounded-lg transition-all focus:bg-muted/20 hover:bg-muted/20 outline-none focus:ring-2 focus:ring-offset-1 ring-offset-background ring-foreground/60">
+                  <div class="reltive size-8 bg-muted rounded-lg"></div>
+                  <div class="mt-2">
+                    <h3 class="text-lg font-semibold">{bookmark.title}</h3>
+                    <p class="text-xs truncate text-muted-foreground">{bookmark.url.replace('https://', "")}</p>
+                  </div>
+                </a>
+              ))}
+            </div>  
+          </div>
+        ))}
+      </div>
+    </div>
+    </div>
+  </section>
+</RootLayout>
