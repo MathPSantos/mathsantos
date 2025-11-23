@@ -1,167 +1,55 @@
 ---
-import RootLayout from '@/layouts/root-layout.astro'
-import { GithubLogo, LinkedinLogo } from '@phosphor-icons/react'
-
-const SOCIAL_LINKS = [
-	{
-		href: 'https://github.com/MathPSantos	',
-		label: 'Github',
-		Icon: GithubLogo
-	},
-	{
-		href: 'https://www.linkedin.com/in/mathpsantos/',
-		label: 'LinkedIn',
-		Icon: LinkedinLogo
-	}
-]
+import RootLayout from "@/layouts/root-layout.astro";
 ---
 
-<RootLayout>
-	{/* Side Info */}
-	<div class="relative flex-none overflow-hidden px-6 lg:pointer-events-none lg:fixed lg:inset-0 lg:z-40 lg:flex lg:px-0">
-		{/* Backdrop */}
-		<div class="absolute inset-0 -z-10 overflow-hidden bg-background lg:right-[calc(max(2rem,50%-38rem)+40rem)] lg:min-w-[32rem]">
-			<svg
-				class="absolute -bottom-48 left-[-40%] h-[80rem] w-[180%] lg:-right-40 lg:bottom-auto lg:left-auto lg:top-[-40%] lg:h-[180%] lg:w-[80rem]"
-				aria-hidden="true"
-			>
-				<defs>
-					<radialGradient id=":R1d6:-desktop" cx="100%">
-						<stop offset="0%" stop-color="rgba(250, 204, 21, 0.3)"></stop>
-						<stop
-							offset="53.95%"
-							stop-color="rgba(217, 119, 6, 0.09)"
-						></stop>
-						<stop offset="100%" stop-color="rgba(10, 14, 23, 0)"></stop>
-					</radialGradient>
-					<radialGradient id=":R1d6:-mobile" cy="100%">
-						<stop offset="0%" stop-color="rgba(250, 204, 21, 0.3)"></stop>
-						<stop
-							offset="53.95%"
-							stop-color="rgba(217, 119, 6, 0.09)"
-						></stop>
-						<stop offset="100%" stop-color="rgba(10, 14, 23, 0)"></stop>
-					</radialGradient>
-				</defs>
-				<rect
-					width="100%"
-					height="100%"
-					fill="url(#:R1d6:-desktop)"
-					class="hidden lg:block"
-				></rect>
-				<rect
-					width="100%"
-					height="100%"
-					fill="url(#:R1d6:-mobile)"
-					class="lg:hidden"
-				></rect>
-			</svg>
-
-			<div class="absolute inset-x-0 bottom-0 right-0 h-px bg-white mix-blend-overlay lg:left-auto lg:top-0 lg:h-auto lg:w-px" />
-		</div>
-
-		{/* Content */}
-		<div class="relative flex w-full lg:pointer-events-auto lg:mr-[calc(max(2rem,50%-38rem)+40rem)] lg:min-w-[32rem] lg:overflow-y-auto lg:pl-[max(2rem,calc(50%-38rem))]">
-			<div class="mx-auto max-w-lg lg:mx-0 lg:flex lg:flex-col lg:w-[26rem] lg:before:flex-1 lg:before:pt-6">
-				<div class="pb-16 pt-20 sm:pb-20 sm:pt-32 lg:py-20">
-					<div>
-						<span class="text-sm text-muted-foreground leading-relaxed">
-							Hey, I’m Matheus Santos
-						</span>
-						<h1 class="mt-2 text-4xl leading-normal">
-							I’m frontend engineer, making{" "}
-							<span class="text-amber-500">digital-products</span>
-						</h1>
-						<p class="mt-5 leading-relaxed">
-							I’m always seeking to helping people with solutions. I’m
-							focused on building, coding and designing decentralized
-							solutions at Floki.
-						</p>
-					</div>
-				</div>
-				<div class="flex flex-1 gap-1 items-end pb-6">
-					{SOCIAL_LINKS.map(({ label, href, Icon }) => (
-						<a
-							href={href}
-							target="_blank"
-							class="group flex items-center justify-center rounded-sm px-1.5 gap-1.5 h-6 hover:bg-muted text-xs transition-colors"
-						>
-							<Icon className='size-4 transition-colors' />
-							{label}
-						</a>
-					))}
-				</div>
-			</div>
-		</div>
-	</div>
-
-	{/* Main */}
-	<main class="py-20 sm:py-32">
-		<div class="mx-auto max-w-7xl px-6 lg:flex lg:px-8">
-			<div class="lg:ml-[26rem] lg:flex lg:w-full lg:justify-end lg:pl-32">
-				<div class="mx-auto max-w-lg lg:mx-0 lg:w-0 lg:max-w-lg lg:flex-auto prose dark:prose-invert">
-					<h2>Trying to make some difference</h2>
-					<p>
-						Hey! I’m Matheus Santos and I love to solve problems with
-						technology. My interest in web development started back in 2018,
-						when I started a System Development Technician course and have
-						my first contact with React.{" "}
-					</p>
-					<p>
-						During the last years, I’ve worked in in a start-up, a school based
-						technology institute and huge corporations. My main focus
-						nowadays is build accessible, inclusive and awesome products and
-						digital experiences for all.{" "}
-					</p>
-					<h2>Where I’ve worked</h2>
-					<h3>
-						Senior Software Engineer <span>@FLOKI</span>
-					</h3>
-					<ul>
-						<li>Developed Web3 platforms from scratch used by 5k+ users simultaneously, ensuring high performance and reliability for systems handling millions of dollars monthly.</li>
-						<li>Created internal tools such as reusable templates, design systems, and npm packages to improve developer experience (DX) and streamline workflows.</li>
-						<li>Implemented internationalization for applications supporting 11 languages, enabling a global user base to interact seamlessly.</li>
-						<li>Led a frontend team of 4 mid-level developers, conducting regular 1:1s to align career goals, provide mentorship, and foster professional growth tailored to their aspirations.</li>
-					</ul>
-					<h3>
-						React Frontend Developer <span>@Zup Innovation</span>
-					</h3>
-					<p>
-						Participating in the planning, development and delivery of new
-						features for the career development tool, Zenity People, used by
-						more than 4k monthly users. Focusing on accessibility, unit
-						testing and scalability.
-					</p>
-					<h3>
-						Angular Frontend Developer <span>@Infosys</span>
-					</h3>
-					<p>
-						Developing new features in the Auction and Carrier Registration
-						modules on Loadshark, Braskem&apos;s freight management
-						platform, generating savings of over 3 million reais and 200+
-						registered carriers.
-					</p>
-					<h3>
-						React Frontend Developer <span>@SENAI</span>
-					</h3>
-					<p>
-						Responsible for implementing the design and development of new
-						features on the Ultracar platform, a system that facilitates the
-						management of auto repair shops in Brazil.
-					</p>
-					<h3>
-						React Frontend Developer <span>@Intelitrader</span>
-					</h3>
-					<p>
-						Participating in the development of the InteliRisk financial
-						risk management platform from the beginning, and being
-						responsible for the delivery and maintainability of new frontend
-						features. Developing the CSS framework for styling and
-						standardizing all Intelitrader products, used in companies such
-						as XP Investimentos and GUIDE.
-					</p>
-				</div>
-			</div>
-		</div>
-	</main>
+<RootLayout
+  title="Matheus Santos"
+  description="Software engineer building products for the web. Experimenting with delightful experiences in user interfaces."
+>
+  <main
+    class="w-full mx-auto px-5 max-w-(--content-width) py-12 sm:py-20 flex-1"
+  >
+    <h1 class="text-xl font-medium mb-6">Matheus Santos</h1>
+    <p class="text-md">
+      <em>Software Engineer</em> building products for the web. Experimenting with
+      delightful experiences in user interfaces. Working at <a
+        href="https://floki.com"
+        target="_blank"
+        class="underline-offset-4 decoration-gray-500 underline hover:decoration-gray-0 transition-colors"
+        >Floki</a
+      >.
+    </p>
+    <h2 class="mt-12 mb-6 text-md font-medium">Now</h2>
+    <p class="mb-4 text-md">
+      Developing skills through exploring and building projects. Currently
+      studying about animations and UI/UX design.
+    </p>
+    <p class="text-md">
+      Working on a few side projects that will be released soon.
+    </p>
+    <h2 class="mt-12 mb-6 text-md font-medium">Connect</h2>
+    <p class="text-md">
+      Reach me at <a
+        href="https://www.linkedin.com/in/mathsantos"
+        target="_blank"
+        class="underline-offset-4 decoration-gray-500 underline hover:decoration-gray-0 transition-colors"
+        >LinkedIn</a
+      > or <a
+        href="mailto:mathsantos.dev@gmail.com"
+        target="_blank"
+        class="underline-offset-4 decoration-gray-500 underline hover:decoration-gray-0 transition-colors"
+        >mathsantos.dev@gmail.com</a
+      >.
+    </p>
+  </main>
+  <footer
+    class="flex items-center justify-between h-10 mx-auto w-full max-w-(--content-width) px-5 shrink-0"
+  >
+    <p class="text-sm text-gray-500">
+      <em>Not your time, not your life.</em>
+    </p>
+    <p class="text-sm text-gray-500">
+      {new Date().getFullYear()}
+    </p>
+  </footer>
 </RootLayout>
