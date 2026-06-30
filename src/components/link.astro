@@ -1,0 +1,27 @@
+---
+type Props = {
+  href: string;
+  target?: string;
+  rel?: string;
+  class?: string;
+};
+
+const {
+  href,
+  target = "_blank",
+  rel = target === "_blank" ? "noopener noreferrer" : undefined,
+  class: className,
+} = Astro.props;
+
+const baseClass =
+  "underline-offset-4 italic decoration-gray-500 underline hover:decoration-gray-0 transition-colors";
+---
+
+<a
+  href={href}
+  target={target}
+  rel={rel}
+  class:list={[baseClass, className]}
+>
+  <slot />
+</a>
