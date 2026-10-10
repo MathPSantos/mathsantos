@@ -1,7 +1,26 @@
 @import "tailwindcss";
 
+@property --page-enter-blur-start {
+  syntax: "<length>";
+  inherits: true;
+  initial-value: 6px;
+}
+
+@property --page-enter-opacity-start {
+  syntax: "<number>";
+  inherits: true;
+  initial-value: 0;
+}
+
 :root {
   --content-width: 640px;
+  --ease-out-expo: cubic-bezier(0.19, 1, 0.22, 1);
+  --page-enter-duration: 500ms;
+  --page-enter-duration-reduced: 350ms;
+  --page-enter-delay: 150ms;
+  --page-enter-footer-delay: 80ms;
+  --page-enter-blur-start: 6px;
+  --page-enter-opacity-start: 0;
 }
 
 @theme inline {
@@ -22,5 +41,44 @@
 @layer base {
   body {
     @apply bg-neutral-950 text-gray-50;
+  }
+}
+
+@keyframes page-enter-blur {
+  from {
+    opacity: var(--page-enter-opacity-start);
+    filter: blur(var(--page-enter-blur-start));
+  }
+  to {
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+
+@keyframes page-enter-fade {
+  from {
+    opacity: var(--page-enter-opacity-start);
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.page-enter {
+  animation-name: page-enter-blur;
+  animation-duration: var(--page-enter-duration);
+  animation-timing-function: var(--ease-out-expo);
+  animation-fill-mode: backwards;
+  animation-delay: var(--page-enter-delay);
+}
+
+.page-enter--footer {
+  animation-delay: var(--page-enter-footer-delay);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-enter {
+    animation-name: page-enter-fade;
+    animation-duration: var(--page-enter-duration-reduced);
   }
 }
